@@ -1,0 +1,6 @@
+[
+    {"name":"first Name","type":"text"},
+    {"name":"last Name","type":"text"},
+    {"name":"choose work mode","type":"radio"},
+    {"name":"Country","type":"select","list":["city1","city2","city3"]}
+]

@@ -1,0 +1,25 @@
+<app-header/>
+<p>This is Contact component content</p>
+<form style="padding: 10%;" [formGroup]="registerForm" (ngSubmit)="formSubmit()">
+    <div>
+        <input type="text" 
+        [ngClass]="registerForm.controls.firstName.touched && registerForm.controls.firstName.invalid ? 'error':null" formControlName="firstName" placeholder="Enter Name">
+    </div>
+    <div>
+        <input type="text" formControlName="address" placeholder="Enter Address">
+    </div>
+    <div>
+        <input type="text" [ngClass]="registerForm.controls.email.touched && registerForm.controls.email.invalid ? 'error':null" formControlName="email" placeholder="Enter Email">
+        @if(registerForm.controls.email.touched && registerForm.controls.email.invalid){
+        <span>Enter valid email</span>
+        }
+    </div>
+    <div>
+        <input type="submit" value="Submit">
+    </div>
+    @if(registerForm.invalid){
+        <h1>Form is invalid. Please enter correct value</h1>
+    }
+</form>
+<app-footer/>
+

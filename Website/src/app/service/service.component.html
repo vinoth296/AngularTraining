@@ -1,0 +1,91 @@
+<app-header currentPage="servicePage"/>
+
+
+<section id="service" class="service">
+    <div class="container">
+        <div class="service-content">
+            @if(show){
+            <h1>Show</h1>
+            }@else {
+            <h2>else</h2>
+            }
+            @defer (on hover) {
+            <span>hi</span>
+            <!-- <app-header></app-header> -->
+            }@placeholder {
+            <span>place holder hover it!</span>
+            }
+            <div class="row">
+                <div class="col-lg-1" style="padding: 1%;padding-left: 90%;">
+                    <select name="" (change)="pageNoSelect()" [(ngModel)]="pageNo" id="sel1">
+                        <!-- <option value="0">Select the Page number</option> -->
+                        <option value="1">Page 1</option>
+                        <option value="2">Page 2</option>
+                        <option value="3">Page 3</option>
+                        <option value="4">Page 4</option>
+                        <option value="5">Page 5</option>
+
+                    </select>
+
+                </div>
+            </div>
+            <div class="row">
+                <!-- <div  *ngFor="let objusr of userList" class="col-md-4 col-sm-6">
+                    <div class="single-service-item">
+                        <div class="single-service-icon">
+                            <img src="{{objusr.avatar}}">
+                        </div>
+                        <h2><a href="#">largest dealership <span> of</span> car</a></h2>
+                        <p>
+                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia.  
+                        </p>
+                        <button (click)="loadMoreDetails(objusr)" class="btn btn-primary" style="padding-top: 1%;">Show More</button>
+                    </div>
+                </div> -->
+
+                @for(objusr of userList;track $index){
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-service-item">
+                        <div class="single-service-icon">
+                            <img src="{{objusr.avatar}}">
+                        </div>
+                        <h2><a href="#">largest dealership <span> of</span> car</a></h2>
+                        <p>
+                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia.
+                        </p>
+                        <button (click)="loadMoreDetails(objusr)" class="btn btn-primary" style="padding-top: 1%;">Show
+                            More</button>
+                    </div>
+                </div>
+                }
+
+            </div>
+        </div>
+    </div><!--/.container-->
+</section>
+<!--/service-->
+<!--service end-->
+
+<app-footer (toParent)="fromFooter($event)" />
+<!-- Modal -->
+<div class="modal" [ngClass]="showModal?'show':''" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" (click)="CloseModal()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                hellow {{cobjuserdet?.first_name}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="CloseModal()"
+                    data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>

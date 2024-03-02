@@ -4,12 +4,15 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonService } from '../common.service';
+import { BgColorDirective } from '../bg-color.directive';
+import { HideshowDirective } from '../hideshow.directive';
+import { throwError } from 'rxjs';
 interface userLogin {"token":''};
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule,BgColorDirective,HideshowDirective],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -23,6 +26,13 @@ export class LoginComponent {
   email1:string= '';
   pwd:string ='';
   errorMsg:string = '';
+  add(a:number,b:number){
+    return a+b;
+  }
+  getName(nam:string){
+    if(nam == ''){throwError('hi');}
+    return nam;
+  }
   loginAPI(){
     
     if(this.email==""){

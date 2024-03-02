@@ -8,8 +8,7 @@ import { Observable, startWith, map } from 'rxjs';
 import {MatButtonModule} from '@angular/material/button';
 import {
   MatBottomSheet,
-  MatBottomSheetModule,
-  MatBottomSheetRef,
+  MatBottomSheetModule
 } from '@angular/material/bottom-sheet';
 import { BottomSheetComponent } from '../bottom-sheet/bottom-sheet.component';
 import {MatSort, Sort, MatSortModule} from '@angular/material/sort';
